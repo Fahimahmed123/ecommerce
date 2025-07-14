@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Customer Login
+{% endblock title %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-sm-6 offset-sm-3">
+        <h3>Customer Login</h3>
+        <form action="/login" method="post" class="shadow p-5">
+
+          <!-- checking -->
+          {% if messages %}
+          {% for message in messages %}
+          <p {% if messsage.tags %} class="alert alert-{{message.tags}} mb-5 form-control-sm {% endif %}"> {{message}} </p>
+
+          {% endfor %}
+          {% endif %}
+
+          {% csrf_token %}
+
+          {% if error %}
+          <div class="alert alert-danger form-control-sm" role="alert">
+            {{error}}
+          </div>
+          {% endif %}
+
+
+
+
+          <div class="form-group">
+            <label for="" class="form-control-lg">
+              Mobile Number
+            </label>
+            <input type="text" name="phone" id="" value="{{value.phone}}" class="form-control" placeholder="Enter Your Phone Number">
+
+          </div>
+
+          <div class="form-group pt-6">
+            <input class="btn btn-sm btn-info" type="submit" value="Login">
+
+          </div>
+
+          <div class="text-center text-primary fw-bold">
+          <small>New User in Python World ?</small>
+          <a href="/signup" class="text-danger">Register</a>
+          </div>
+
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

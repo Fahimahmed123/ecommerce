@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <h1>Index Page</h1>
+</head>
+<body>
+<h1>Hello To the Product Page</h1>
+
+
+<table border="1" align="center">
+    <tr>
+    <th>Name of the Product </th>
+    <th>Price of the Product </th>
+    <th>Category</th>
+    <th>Description of the Product </th>
+    </tr>
+{% for prod in product %}
+    <tr>
+        <td align="center">{{prod.name}}</td>
+        <td align="center">{{prod.price}}</td>
+        <td align="center">{{prod.category}}</td>
+        <td align="center">{{prod.description}}</td>
+        <td align="center">{{prod.image}}</td>
+
+    </tr>
+{% endfor %}
+</table>
+
+
+</body>
+</html>

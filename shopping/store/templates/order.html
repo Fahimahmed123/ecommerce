@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Cart {% endblock title %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="border-rounded p-4 m-4">
+      <p class="display-4 pl-4 pl-4">Your Order</p>
+
+      <hr>
+
+       <table class="table">
+            <thead>
+                <tr>
+                    <th>SI No.</th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Order Date</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in order %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="{{ order.image.url }}"></td>
+                    <td>{{ order.name }}</td>
+                    <td>{{order.ordered_date}}</td>
+                    <td>{{order.qty}}</td>
+                    <td>BDT {{ order.price }}</td>
+                    <td>{{order.status}}</td>
+
+                </tr>
+ {% endfor %}
+            </tbody>
+
+        </table>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
